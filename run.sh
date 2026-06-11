@@ -6,5 +6,6 @@ case $1 in
     ("build_reporter") docker build analyst -t html-reporter;;
     ("run_reporter") docker run -v ./data:/data html-reporter;;
     ("structure") ls -R .;;
+    ("clear_data") docker run -v ./data:/mnt alpine sh -c "rm -f /mnt/*.csv && rm -f /mnt/*.html";;
     (*) echo "No such command";;
 esac
