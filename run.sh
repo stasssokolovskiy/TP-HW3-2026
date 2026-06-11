@@ -5,5 +5,6 @@ case $1 in
     ("create_local_data") docker run -v .:/mnt csv-generator /mnt/Local_data;;
     ("build_reporter") docker build analyst -t html-reporter;;
     ("run_reporter") docker run -v ./data:/data html-reporter;;
+    ("structure") ls -R .;;
     (*) echo "No such command";;
 esac
