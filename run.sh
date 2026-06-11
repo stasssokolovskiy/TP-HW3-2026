@@ -6,7 +6,7 @@ case $1 in
     ("build_reporter") docker build analyst -t html-reporter;;
     ("run_reporter") docker run -v ./data:/data html-reporter;;
     ("structure") ls -R .;;
-    ("clear_data") docker run -v ./data:/mnt alpine sh -c "rm -f /mnt/*.csv && rm -f /mnt/*.html";;
+    ("clear_data") rm -f ./data/*.csv && rm -f ./data/*.html;;
     ("inside_generator") docker run -v .:/mnt --entrypoint sh csv-generator -c "ls /mnt/data";;
     ("inside_reporter") docker run -v ./data:/data --entrypoint sh html-reporter -c "ls /data";;
     ("report_server") docker run -d --name report_server -p 8080:80 -v ./data:/usr/local/apache2/htdocs/ httpd;;
