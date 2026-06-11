@@ -9,5 +9,7 @@ case $1 in
     ("clear_data") docker run -v ./data:/mnt alpine sh -c "rm -f /mnt/*.csv && rm -f /mnt/*.html";;
     ("inside_generator") docker run -v .:/mnt --entrypoint sh csv-generator -c "ls /mnt/data";;
     ("inside_reporter") docker run -v ./data:/data --entrypoint sh html-reporter -c "ls /data";;
+    ("run_report_server") docker run -d --name report_server -p 8080:80 -v ./data:/usr/local/apache2/htdocs/ httpd;;
+    ("stop_report_server") docker stop report_server && docker rm report_server;;
     (*) echo "No such command";;
 esac
