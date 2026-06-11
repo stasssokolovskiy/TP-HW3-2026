@@ -7,5 +7,7 @@ case $1 in
     ("run_reporter") docker run -v ./data:/data html-reporter;;
     ("structure") ls -R .;;
     ("clear_data") docker run -v ./data:/mnt alpine sh -c "rm -f /mnt/*.csv && rm -f /mnt/*.html";;
+    ("inside_generator") docker run -v .:/mnt --entrypoint sh csv-generator -c "ls /mnt/data";;
+    ("inside_reporter") docker run -v ./data:/data --entrypoint sh html-reporter -c "ls /data";;
     (*) echo "No such command";;
 esac
