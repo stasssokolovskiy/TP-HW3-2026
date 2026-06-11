@@ -1,0 +1,4 @@
+{
+    "image": "docker:cli",
+    "forwardPorts": [8080]
+}
