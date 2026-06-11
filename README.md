@@ -37,3 +37,4 @@
 * [Образ httpd](https://hub.docker.com/_/httpd)
 * [Спецификация devcontainer.json](https://containers.dev/implementors/json_reference)
 * [Образ docker:cli](https://hub.docker.com/_/docker#dockerversion-cli)
+* [Монтирование в devcontainer](https://code.visualstudio.com/remote/advancedcontainers/add-local-file-mount)
